@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Header } from "./components/Header";
 import { Toolbar } from "./components/Toolbar";
-import { FormRegistration } from "./components/FormRegistration";
+import { FormReg } from './components/FormRegistration';
 import { FormAuth } from "./components/FormAuth";
 
-function App() {
-  const [isFormRegOpened, setFormRegOpened] = useState(false);
+export function App() {
   const [isFormAuthOpened, setFormAuthOpened] = useState(false);
+  const [isFormRegOpened, setFormRegOpened] = useState(false);
 
   const openFormRegHandler = (state) => {
     setFormRegOpened(state);
@@ -18,17 +18,17 @@ function App() {
 
   return (
     <>
-      <Header onOpenFormReg={openFormRegHandler} />
+      <Header onOpenFormAuth={openFormAuthHandler} />
       <Toolbar />
+      {isFormAuthOpened && <FormAuth onOpenFormAuth={openFormAuthHandler}
+          onOpenFormReg={openFormRegHandler}/>}
       {isFormRegOpened && (
-        <FormRegistration
+        <FormReg
           onOpenFormAuth={openFormAuthHandler}
           onOpenFormReg={openFormRegHandler}
         />
       )}
-      {isFormAuthOpened && <FormAuth />}
+      
     </>
   );
 }
-
-export default App;

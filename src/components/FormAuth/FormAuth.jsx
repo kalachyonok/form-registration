@@ -1,22 +1,15 @@
 import style from "./FormAuth.module.css";
 
-export const FormAuth = () => {
+export const FormAuth = (props) => {
+  const toggleFormHandler = () => {
+    props.onOpenFormReg(true);
+    props.onOpenFormAuth(false);
+  };
+
   return (
     <div className={style.container}>
-      <h2 className={style.label}>Create account </h2>
+      <h2 className={style.label}>Please, log in to your account </h2>
       <form>
-        <div class="mb-3">
-          <label for="name" class="form-label">
-            Name
-          </label>
-          <input
-            type="text"
-            class="form-control"
-            id="name"
-            placeholder="Piter Pen"
-            aria-describedby="emailHelp"
-          />
-        </div>
         <div class="mb-3">
           <label for="email" class="form-label">
             E-mail
@@ -40,6 +33,7 @@ export const FormAuth = () => {
             placeholder="*******"
           />
         </div>
+        
 
         <div class="d-grid gap-2">
           <button class="btn btn-primary" type="button">
@@ -50,9 +44,9 @@ export const FormAuth = () => {
 
       <div className={style.line}></div>
       <div className={style.account}>
-        <div className={style.label}>Already have an account?</div>
-        <button type="button" class="btn btn-link">
-          Log in
+        <div className={style.label}>Don’t have an account?</div>
+        <button type="button" class="btn btn-link" onClick={toggleFormHandler}>
+          Register
         </button>
       </div>
     </div>
