@@ -1,5 +1,7 @@
+import { Header } from "./Header";
+
 function App() {
-  return <h1 class="h6">Form</h1>;
+  return <Header></Header>;
 }
 
 export default App;
