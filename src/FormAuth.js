@@ -1,10 +1,22 @@
-import style from "./FormRegistration.module.css";
+import style from "./FormAuth.module.css";
 
-export const FormRegistration = () => {
+export const FormAuth = () => {
   return (
     <div className={style.container}>
-      <h2 className={style.label}>Please, log in to your account </h2>
+      <h2 className={style.label}>Create account </h2>
       <form>
+        <div class="mb-3">
+          <label for="name" class="form-label">
+            Name
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Piter Pen"
+            aria-describedby="emailHelp"
+          />
+        </div>
         <div class="mb-3">
           <label for="email" class="form-label">
             E-mail
@@ -38,9 +50,9 @@ export const FormRegistration = () => {
 
       <div className={style.line}></div>
       <div className={style.account}>
-        <div className={style.label}>Don’t have an account?</div>
+        <div className={style.label}>Already have an account?</div>
         <button type="button" class="btn btn-link">
-          Register
+          Log in
         </button>
       </div>
     </div>
