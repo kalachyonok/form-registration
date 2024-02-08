@@ -1,13 +1,6 @@
 import styleHeader from "./Header.module.css";
-import { useState } from "react";
 
-export const Header = () => {
-  const [isFormOpened, setFormIsOpened] = useState(false);
-
-  const openFormRegistrationHandler = () => {
-    setFormIsOpened(true);
-  };
-
+export const Header = (props) => {
   return (
     <header className={styleHeader.header}>
       <div>Hello, User!</div>
@@ -15,7 +8,7 @@ export const Header = () => {
         <button
           type="button"
           class="btn btn-link"
-          onClick={openFormRegistrationHandler}
+          onClick={() => props.onOpenFormReg(true)}
         >
           Login
         </button>

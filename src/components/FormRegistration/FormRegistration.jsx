@@ -1,6 +1,11 @@
 import style from "./FormRegistration.module.css";
 
-export const FormRegistration = () => {
+export const FormRegistration = (props) => {
+  const toggleFormHandler = () => {
+    props.onOpenFormReg(false);
+    props.onOpenFormAuth(true);
+  };
+
   return (
     <div className={style.container}>
       <h2 className={style.label}>Please, log in to your account </h2>
@@ -39,7 +44,7 @@ export const FormRegistration = () => {
       <div className={style.line}></div>
       <div className={style.account}>
         <div className={style.label}>Don’t have an account?</div>
-        <button type="button" class="btn btn-link">
+        <button type="button" class="btn btn-link" onClick={toggleFormHandler}>
           Register
         </button>
       </div>
