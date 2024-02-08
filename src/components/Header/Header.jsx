@@ -7,7 +7,7 @@ export const Header = (props) => {
       <div>
         <button
           type="button"
-          class="btn btn-link"
+          className="btn btn-link"
           onClick={() => props.onOpenFormAuth(true)}
         >
           Login

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Header } from "./components/Header";
 import { Toolbar } from "./components/Toolbar";
-import { FormReg } from './components/FormRegistration';
+import { FormReg } from "./components/FormRegistration";
 import { FormAuth } from "./components/FormAuth";
 
 export function App() {
@@ -20,15 +20,18 @@ export function App() {
     <>
       <Header onOpenFormAuth={openFormAuthHandler} />
       <Toolbar />
-      {isFormAuthOpened && <FormAuth onOpenFormAuth={openFormAuthHandler}
-          onOpenFormReg={openFormRegHandler}/>}
+      {isFormAuthOpened && (
+        <FormAuth
+          onOpenFormAuth={openFormAuthHandler}
+          onOpenFormReg={openFormRegHandler}
+        />
+      )}
       {isFormRegOpened && (
         <FormReg
           onOpenFormAuth={openFormAuthHandler}
           onOpenFormReg={openFormRegHandler}
         />
       )}
-      
     </>
   );
 }

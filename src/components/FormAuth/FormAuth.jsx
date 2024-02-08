@@ -10,33 +10,32 @@ export const FormAuth = (props) => {
     <div className={style.container}>
       <h2 className={style.label}>Please, log in to your account </h2>
       <form>
-        <div class="mb-3">
-          <label for="email" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
             E-mail
           </label>
           <input
             type="email"
-            class="form-control"
+            className="form-control"
             id="email"
             placeholder="piter@gmail.com"
             aria-describedby="emailHelp"
           />
         </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">
             Password
           </label>
           <input
             type="password"
-            class="form-control"
+            className="form-control"
             id="password"
             placeholder="*******"
           />
         </div>
-        
 
-        <div class="d-grid gap-2">
-          <button class="btn btn-primary" type="button">
+        <div className="d-grid gap-2">
+          <button className="btn btn-primary" type="submit">
             Sign in
           </button>
         </div>
@@ -45,7 +44,11 @@ export const FormAuth = (props) => {
       <div className={style.line}></div>
       <div className={style.account}>
         <div className={style.label}>Don’t have an account?</div>
-        <button type="button" class="btn btn-link" onClick={toggleFormHandler}>
+        <button
+          type="button"
+          className="btn btn-link"
+          onClick={toggleFormHandler}
+        >
           Register
         </button>
       </div>
