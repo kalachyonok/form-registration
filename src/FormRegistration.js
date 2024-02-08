@@ -41,10 +41,20 @@ export const FormRegistration = () => {
           />
         </div>
 
-        <button type="submit" class="btn btn-primary">
-          Sign in
-        </button>
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" type="button">
+            Sign in
+          </button>
+        </div>
       </form>
+
+      <div className={style.line}></div>
+      <div className={style.account}>
+        <div className={style.label}>Don’t have an account?</div>
+        <button type="button" class="btn btn-link">
+          Register
+        </button>
+      </div>
     </div>
   );
 };

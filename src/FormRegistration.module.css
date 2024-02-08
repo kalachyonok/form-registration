@@ -9,3 +9,17 @@
 .label {
   color: #073478;
 }
+
+.line {
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  height: 1px;
+  background: rgba(192, 191, 191, 0.5);
+}
+
+.account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
