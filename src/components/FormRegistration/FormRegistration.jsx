@@ -1,9 +1,15 @@
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../../firebase";
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
+  createUser,
+} from "firebase/auth";
+
 import style from "./FormRegistration.module.css";
 import { useState } from "react";
+import { auth } from "../../firebase";
 
 export const FormReg = (props) => {
+  // const auth = useContext(FirebaseContextProvider);
   const toggleFormHandler = () => {
     props.onOpenFormReg(false);
     props.onOpenFormAuth(true);
@@ -13,43 +19,52 @@ export const FormReg = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const registrationHandler = (e) => {
-  //   console.log("registrationHandler  e:", e);
-  //   e.preventDefault();
-  //   createUserWithEmailAndPassword(auth, email, password)
-  //     .then((user) => {
-  //       console.log(user);
-  //       setName("");
-  //       setEmail("");
-  //       setPassword("");
-  //     })
-  //     .catch((error) => console.error(error));
-  // };
-
-  const registrationHandler = async (e, name, email, password) => {
+  const registrationHandler = async (e) => {
+    console.log("registrationHandler  e:", e);
     e.preventDefault();
-    const res1 = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    ).catch((error) => console.error(error));
+    await createUserWithEmailAndPassword(auth, email, password)
+      .then((user) => {
+        console.log(user);
+        setName("");
+        setEmail("");
+        setPassword("");
+      })
+      .catch((error) => console.error(error));
 
-    console.log("registrationHandler  res1:", res1);
-
-    const res = await updateProfile(auth.currentUser, {
+    await updateProfile(auth.currentUser, {
       displayName: name,
-    }).catch((err) => console.log(err));
-
-    console.log(res);
-    setName("");
-    setEmail("");
-    setPassword("");
+    })
+      .then(() => {
+        //перейти на форму логина и закрыть форму регистрации
+        toggleFormHandler();
+      })
+      .catch((err) => console.log(err));
   };
+
+  // const registrationHandler = async (e, name, email, password) => {
+  //   e.preventDefault();
+  //   const res1 = await createUserWithEmailAndPassword(
+  //     auth,
+  //     email,
+  //     password
+  //   ).catch((error) => console.error(error));
+
+  //   console.log("registrationHandler  res1:", res1);
+
+  //   const res = await updateProfile(auth.currentUser, {
+  //     displayName: name,
+  //   }).catch((err) => console.log(err));
+
+  //   console.log(res);
+  //   setName("");
+  //   setEmail("");
+  //   setPassword("");
+  // };
 
   return (
     <div className={style.container}>
       <h2 className={style.label}>Create account </h2>
-      <form onSubmit={(e) => registrationHandler(e, name, email, password)}>
+      <form onSubmit={(e) => registrationHandler(e)}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
             Name

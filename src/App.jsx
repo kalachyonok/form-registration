@@ -8,28 +8,28 @@ export function App() {
   const [isFormAuthOpened, setFormAuthOpened] = useState(false);
   const [isFormRegOpened, setFormRegOpened] = useState(false);
 
-  const openFormRegHandler = (state) => {
+  const switchFormRegHandler = (state) => {
     setFormRegOpened(state);
   };
 
-  const openFormAuthHandler = (state) => {
+  const switchFormAuthHandler = (state) => {
     setFormAuthOpened(state);
   };
 
   return (
     <>
-      <Header onOpenFormAuth={openFormAuthHandler} />
+      <Header onOpenFormAuth={switchFormAuthHandler} />
       <Toolbar />
       {isFormAuthOpened && (
         <FormAuth
-          onOpenFormAuth={openFormAuthHandler}
-          onOpenFormReg={openFormRegHandler}
+          onOpenFormAuth={switchFormAuthHandler}
+          onOpenFormReg={switchFormRegHandler}
         />
       )}
       {isFormRegOpened && (
         <FormReg
-          onOpenFormAuth={openFormAuthHandler}
-          onOpenFormReg={openFormRegHandler}
+          onOpenFormAuth={switchFormAuthHandler}
+          onOpenFormReg={switchFormRegHandler}
         />
       )}
     </>
