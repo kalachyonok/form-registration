@@ -35,8 +35,8 @@ export const FormReg = (props) => {
       displayName: name,
     })
       .then(() => {
-        //перейти на форму логина и закрыть форму регистрации
-        toggleFormHandler();
+        //закрыть форму регистрации
+        props.onOpenFormReg(false);
       })
       .catch((err) => console.log(err));
   };

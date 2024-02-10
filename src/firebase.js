@@ -16,18 +16,3 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-
-// const FirebaseContext = React.createContext({
-//   auth: null,
-// });
-
-// export const FirebaseContextProvider = (props) => {
-//   const app = initializeApp(firebaseConfig);
-//   const auth = getAuth(app);
-
-//   return (
-//     <FirebaseContext.Provider value={auth}>
-//       {props.children}
-//     </FirebaseContext.Provider>
-//   );
-// };

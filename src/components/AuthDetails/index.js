@@ -1,1 +1,5 @@
-export { AuthDetails } from "./AuthDetails";
+export {
+  AuthContextProvider,
+  AuthContext,
+  useAuthContext,
+} from "./AuthDetails";
